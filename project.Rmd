@@ -52,7 +52,7 @@ Here all variables are used to fit the linear regression for mpg. Type "**TotalM
 We start at a model of "mpg" onto all variables. Then to find an optimal model, we make backward selection of these variables using Akaike Information Criterion (AIC). Typing "**allvariablesmode<-lm(mpg~.,data=mtcars), backwardmodel<-step(allvariablesmodel, direction="backward")**", we obtain the optimal model "mpg ~ wt + qsec + am". Its summary can be found in Summary 2.
 
 ##Residuals Analysis and Diagnostics
-We examine the residuals plot as Figure 5. It can be shown that the residual plots are randomly around the x-axis. So a linear regression model is appropriate for the "mtcars" data set.
+We examine the residuals plot as Figure 4. It can be shown that the residual plots are randomly around the x-axis. So a linear regression model is appropriate for the "mtcars" data set.
 
 ##Answers to the Questions
 After the analysis of multiple models, we can conclude that manual tranmission is better for fuel efficiency than automatic transmission. In the single variable model, the difference between these two ways of transmission in several models is 7.245 miles per gallon with a significance level 0.000285 (<0.001, very strongly significant).
@@ -69,12 +69,12 @@ plot(mpg~am, data=mtcars,xlab="Transmission",ylab="mpg (Miles per Gallon",main="
 boxplot(mpg~am, data=mtcars,xlab="Transmission",ylab="mpg (Miles per Gallon)",names=c("Automatic","Manual"),main="Fit linear regression for mpg onto am",col="blue") 
 ```
 
-##Figure 3
+###Figure 3
 ```{r,echo=FALSE,fig.height=4.0,fig.width=3.5}
 plot(mpg~am+cyl, data=mtcars,main="mpg by am and cyl",col="blue")
 ```
 
-##Summary 1
+###Summary 1
 ```R
                Estimate  Std. Error    t value   Pr(>|t|)
 (Intercept) 12.30337416 18.71788443  0.6573058 0.51812440
@@ -91,7 +91,7 @@ carb        -0.19941925  0.82875250 -0.2406258 0.81217871
 ```
 
 
-##Summary 2
+###Summary 2
 ```R
 Call:
 lm(formula = mpg ~ wt + qsec + am, data = mtcars)
@@ -114,7 +114,7 @@ Multiple R-squared:  0.8497,  Adjusted R-squared:  0.8336
 F-statistic: 52.75 on 3 and 28 DF,  p-value: 1.21e-11
 ```
 
-##Figure 5
+###Figure 4
 ```{r echo=FALSE}
 par(mfrow=c(2,2))
 backwardmodel<-lm(formula = mpg ~ wt + qsec + am, data = mtcars)
